@@ -58,7 +58,8 @@ class Response
      */
     public function getName()
     {
-        $result = isset($this->_data['name']) && !empty($this->_data['name']) ? (string)$this->_data['name'] : null;
+        $result = isset($this->_data['name']) && !empty($this->_data['name']) ? (string) $this->_data['name'] : null;
+
         return $result;
     }
 
@@ -68,7 +69,8 @@ class Response
      */
     public function getVendor()
     {
-        $result = isset($this->_data['vendor']) && !empty($this->_data['vendor']) ? (string)$this->_data['vendor'] : null;
+        $result = isset($this->_data['vendor']) && !empty($this->_data['vendor']) ? (string) $this->_data['vendor'] : null;
+
         return $result;
     }
 
@@ -78,7 +80,8 @@ class Response
      */
     public function getDeviceClass()
     {
-        $result = isset($this->_data['device-class']) && !empty($this->_data['device-class']) ? (string)$this->_data['device-class'] : null;
+        $result = isset($this->_data['device-class']) && !empty($this->_data['device-class']) ? (string) $this->_data['device-class'] : null;
+
         return $result;
     }
 
@@ -88,7 +91,8 @@ class Response
      */
     public function getDeviceClassDesc()
     {
-        $result = isset($this->_data['device-class-desc']) && !empty($this->_data['device-class-desc']) ? (string)$this->_data['device-class-desc'] : null;
+        $result = isset($this->_data['device-class-desc']) && !empty($this->_data['device-class-desc']) ? (string) $this->_data['device-class-desc'] : null;
+
         return $result;
     }
 
@@ -98,7 +102,8 @@ class Response
      */
     public function getScreenWidth()
     {
-        $result = isset($this->_data['screenx']) && !empty($this->_data['screenx']) ? (int)$this->_data['screenx'] : null;
+        $result = isset($this->_data['screenx']) && !empty($this->_data['screenx']) ? (int) $this->_data['screenx'] : null;
+
         return $result;
     }
 
@@ -108,7 +113,8 @@ class Response
      */
     public function getScreenHeight()
     {
-        $result = isset($this->_data['screeny']) && !empty($this->_data['screeny']) ? (int)$this->_data['screeny'] : null;
+        $result = isset($this->_data['screeny']) && !empty($this->_data['screeny']) ? (int) $this->_data['screeny'] : null;
+
         return $result;
     }
 }

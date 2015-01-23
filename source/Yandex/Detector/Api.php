@@ -30,62 +30,68 @@ class Api
     }
 
     /**
-     * @param string $userAgent Версия браузера мобильного устройства
+     * @param  string $userAgent Версия браузера мобильного устройства
      * @return self
      */
     public function setUserAgent($userAgent)
     {
-        $this->_filters['user-agent'] = (string)$userAgent;
+        $this->_filters['user-agent'] = (string) $userAgent;
+
         return $this;
     }
 
     /**
-     * @param string $profile Ссылка на UAProf-файл, содержащий информацию о возможностях мобильного устройства (профиль)
+     * @param  string $profile Ссылка на UAProf-файл, содержащий информацию о возможностях мобильного устройства (профиль)
      * @return self
      */
     public function setProfile($profile)
     {
-        $this->_filters['profile'] = (string)$profile;
+        $this->_filters['profile'] = (string) $profile;
+
         return $this;
     }
 
     /**
-     * @param string $wapProfile Ссылка на UAProf-файл, содержащий информацию о возможностях мобильного устройства (профиль)
+     * @param  string $wapProfile Ссылка на UAProf-файл, содержащий информацию о возможностях мобильного устройства (профиль)
      * @return self
      */
     public function setWapProfile($wapProfile)
     {
-        $this->_filters['wap-profile'] = (string)$wapProfile;
+        $this->_filters['wap-profile'] = (string) $wapProfile;
+
         return $this;
     }
 
     /**
-     * @param string $xWapProfile Ссылка на UAProf-файл, содержащий информацию о возможностях мобильного устройства (профиль)
+     * @param  string $xWapProfile Ссылка на UAProf-файл, содержащий информацию о возможностях мобильного устройства (профиль)
      * @return self
      */
     public function setXWapProfile($xWapProfile)
     {
-        $this->_filters['x-wap-profile'] = (string)$xWapProfile;
+        $this->_filters['x-wap-profile'] = (string) $xWapProfile;
+
         return $this;
     }
 
     /**
-     * @param string $xOperaMini Дополнительный заголовок, передаваемый браузером Opera Mini. Обычно содержит версию штатного браузера мобильного устройства
+     * @param  string $xOperaMini Дополнительный заголовок, передаваемый браузером Opera Mini. Обычно содержит версию штатного браузера мобильного устройства
      * @return self
      */
     public function setXOperaMini($xOperaMini)
     {
-        $this->_filters['x-operamini-phone-ua'] = (string)$xOperaMini;
+        $this->_filters['x-operamini-phone-ua'] = (string) $xOperaMini;
+
         return $this;
     }
 
     /**
-     * Очитстить все фильтры
+     * Очистить все фильтры
      * @return self
      */
     public function reset()
     {
         $this->_filters = array();
+
         return $this;
     }
 
@@ -120,6 +126,7 @@ class Api
             throw new \Yandex\Detector\Exception(sprintf("Error: %s", $xml));
         }
         $this->_response = new \Yandex\Detector\Response($xml);
+
         return $this;
     }
 
