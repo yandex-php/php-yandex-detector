@@ -97,7 +97,21 @@ class Api
     {
         $apiUrl = 'http://phd.yandex.net/detect?';
         $query = http_build_query($this->_filters);
-        $data = file_get_contents($apiUrl . $query);
+
+        $ch = curl_init();
+        curl_setopt_array($ch, array(
+           CURLOPT_RETURNTRANSFER => true,
+           CURLOPT_TIMEOUT => 5,
+           CURLOPT_CONNECTTIMEOUT => 5,
+           CURLOPT_URL => $apiUrl.$query,
+        ));
+        $data = curl_exec($ch);
+        if (curl_errno($ch)) {
+            curl_close($ch);
+            throw new \Yandex\Detector\Exception(sprintf("Curl error: %s", curl_error($ch)));
+        }
+        curl_close($ch);
+
         $xml = @simplexml_load_string($data);
         if (!($xml instanceof \SimpleXMLElement)) {
             throw new \Yandex\Detector\Exception(sprintf("Bad response: \"%s\"", $data));
