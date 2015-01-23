@@ -5,7 +5,6 @@ namespace Yandex\Detector;
  * Class Response
  * @package Yandex\Detector
  * @see http://api.yandex.ru/detector/doc/dg/concepts/detector-response.xml
- * @author Dmitry Kuznetsov <kuznetsov2d@gmail.com>
  * @license The MIT License (MIT)
  */
 class Response
@@ -15,16 +14,16 @@ class Response
     /**
      * @var \SimpleXMLElement
      */
-    protected $_xmlSource;
+    protected $xmlSource;
     /**
      * @var array
      */
-    protected $_data = array();
+    protected $data = array();
 
     public function __construct(\SimpleXMLElement $xml)
     {
-        $this->_xmlSource = $xml;
-        $this->_data = json_decode(json_encode($xml), true);
+        $this->xmlSource = $xml;
+        $this->data = json_decode(json_encode($xml), true);
     }
 
     /**
@@ -33,7 +32,7 @@ class Response
      */
     public function getSource()
     {
-        return $this->_xmlSource;
+        return $this->xmlSource;
     }
 
     /**
@@ -58,7 +57,8 @@ class Response
      */
     public function getName()
     {
-        $result = isset($this->_data['name']) && !empty($this->_data['name']) ? (string)$this->_data['name'] : null;
+        $result = isset($this->data['name']) && !empty($this->data['name']) ? (string) $this->data['name'] : null;
+
         return $result;
     }
 
@@ -68,7 +68,8 @@ class Response
      */
     public function getVendor()
     {
-        $result = isset($this->_data['vendor']) && !empty($this->_data['vendor']) ? (string)$this->_data['vendor'] : null;
+        $result = isset($this->data['vendor']) && !empty($this->data['vendor']) ? (string) $this->data['vendor'] : null;
+
         return $result;
     }
 
@@ -78,7 +79,8 @@ class Response
      */
     public function getDeviceClass()
     {
-        $result = isset($this->_data['device-class']) && !empty($this->_data['device-class']) ? (string)$this->_data['device-class'] : null;
+        $result = isset($this->data['device-class']) && !empty($this->data['device-class']) ? (string) $this->data['device-class'] : null;
+
         return $result;
     }
 
@@ -88,7 +90,8 @@ class Response
      */
     public function getDeviceClassDesc()
     {
-        $result = isset($this->_data['device-class-desc']) && !empty($this->_data['device-class-desc']) ? (string)$this->_data['device-class-desc'] : null;
+        $result = isset($this->data['device-class-desc']) && !empty($this->data['device-class-desc']) ? (string) $this->data['device-class-desc'] : null;
+
         return $result;
     }
 
@@ -98,7 +101,8 @@ class Response
      */
     public function getScreenWidth()
     {
-        $result = isset($this->_data['screenx']) && !empty($this->_data['screenx']) ? (int)$this->_data['screenx'] : null;
+        $result = isset($this->data['screenx']) && !empty($this->data['screenx']) ? (int) $this->data['screenx'] : null;
+
         return $result;
     }
 
@@ -108,7 +112,8 @@ class Response
      */
     public function getScreenHeight()
     {
-        $result = isset($this->_data['screeny']) && !empty($this->_data['screeny']) ? (int)$this->_data['screeny'] : null;
+        $result = isset($this->data['screeny']) && !empty($this->data['screeny']) ? (int) $this->data['screeny'] : null;
+
         return $result;
     }
 }

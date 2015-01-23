@@ -4,16 +4,15 @@
  * @link http://github.com/dmkuznetsov/php-autoloader
  * @date 2013-11-21 22:25
  */
-function __dm_autoload_detector( $name )
+function __dm_autoload_detector($name)
 {
-	$map = array (
+    $map = array(
   'Yandex\\Detector\\Api' => 'source/Yandex/Detector/Api.php',
   'Yandex\\Detector\\Exception' => 'source/Yandex/Detector/Exception.php',
   'Yandex\\Detector\\Response' => 'source/Yandex/Detector/Response.php',
 );
-	if ( isset( $map[ $name ] ) )
-	{
-		require $map[ $name ];
-	}
+    if (isset($map[ $name ])) {
+        require $map[ $name ];
+    }
 }
-spl_autoload_register( '__dm_autoload_detector' );
+spl_autoload_register('__dm_autoload_detector');

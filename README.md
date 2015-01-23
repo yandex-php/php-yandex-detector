@@ -21,7 +21,6 @@ try {
         ->setUserAgent('Alcatel-CTH3/1.0 UP.Browser/6.2.ALCATEL MMP/1.0')
         ->setWapProfile('http://www-ccpp-mpd.alcatel.com/files/ALCATEL-CTH3_MMS10_1.0.rdf')
         ->load();
-
 } catch (\Yandex\Detector\Exception $ex) {
 }
 
@@ -38,4 +37,13 @@ if (!$response) {
 
     echo $response->getScreenWidth() . 'x' . $response->getScreenHeight();
 }
+```
+
+
+Так же возможно перекрыть параметры отправки запросов curl (например, чтобы увеличить время ожидания коннекта):
+
+```php
+<?php
+$api = new \Yandex\Detector\Api(array(CURLOPT_CONNECTTIMEOUT => 20, CURLOPT_TIMEOUT => 30));
+// ...
 ```
