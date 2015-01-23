@@ -38,3 +38,12 @@ if (!$response) {
     echo $response->getScreenWidth() . 'x' . $response->getScreenHeight();
 }
 ```
+
+
+Так же возможно перекрыть параметры отправки запросов curl (например, чтобы увеличить время ожидания коннекта):
+
+```php
+<?php
+$api = new \Yandex\Detector\Api(array(CURLOPT_CONNECTTIMEOUT => 20, CURLOPT_TIMEOUT => 30));
+// ...
+```
